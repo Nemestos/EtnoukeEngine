@@ -12,9 +12,9 @@
 typedef struct State
 {
     fn_ptr init;
-    fn_ptr_float update;
-    fn_ptr_float draw;
-    fn_ptr_float destroy;
+    unsigned int (*fn_ptr)(_custom) update;
+    fn_ptr_custom(StateOptions) draw;
+    fn_ptr destroy;
 } State;
 
 #endif /* INCLUDE_STATE */
