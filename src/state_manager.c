@@ -45,7 +45,7 @@ int sm_push(StateManager *stateManager, State *state)
     }
     return stateManager->front;
 }
-State *sm_pop(StateManager *stateManager)
+int sm_pop(StateManager *stateManager)
 {
     if (stateManager->front == -1)
     {
@@ -69,6 +69,14 @@ State *sm_top(StateManager *stateManager)
 int sm_update(StateManager *stateManager, StateOptions stateOptions)
 {
     State *state = sm_top(stateManager);
-    if (state->draw != NULL)
-        return state->draw(stateOptions)
+    if (state->update != NULL)
+        return state->update(&stateOptions);
 }
+
+int sm_draw(StateManager *stateManager, StateOptions stateOptions)
+{
+    State *state = sm_top(stateManager);
+    if (state->draw != NULL)
+        return state->draw(&stateOptions);
+}
+

@@ -37,7 +37,7 @@ int sm_push(StateManager *stateManager, State *state);
 
 State *sm_top(StateManager *stateManager);
 
-State *sm_pop(StateManager *stateManager);
+int sm_pop(StateManager *stateManager);
 
 int sm_update(StateManager *stateManager, StateOptions stateOptions);
 

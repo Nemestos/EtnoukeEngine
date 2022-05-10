@@ -13,8 +13,9 @@ typedef unsigned int (*fn_ptr_float)(float);
 typedef unsigned int (*fn_ptr_int)(int);
 typedef unsigned int (*fn_ptr_char)(char);
 typedef unsigned int (*fn_ptr_str)(char *);
-typedef unsigned int (*fn_ptr_void)(void *);
-#define fn_ptr_custom(_custom) unsigned int (*fn_ptr)(_custom)
+typedef unsigned int (*fn_ptr_void_ptr)(void*);
+#define fn_ptr_custom(_custom) unsigned int (*fn_ptr_void_ptr)(_custom);
+
 
 #define GOOD_RETURN 0
 #define FAILED_RETURN 1

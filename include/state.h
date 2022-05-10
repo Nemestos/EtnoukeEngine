@@ -9,11 +9,13 @@
 #define INCLUDE_STATE
 
 #include "utils.h"
+#include "state.h"
 typedef struct State
 {
     fn_ptr init;
-    unsigned int (*fn_ptr)(_custom) update;
-    fn_ptr_custom(StateOptions) draw;
+    fn_ptr_void_ptr draw;
+    fn_ptr_void_ptr update;
+
     fn_ptr destroy;
 } State;
 
