@@ -19,7 +19,7 @@ OBJ := $(SRC:.c=.o)\
 		$(MAIN:.c=.o)
 
 #FILE TESTS
-SRCTEST := $(TESTS_DIR)/test_state_manager.c
+SRCTEST := $(TESTS_DIR)/state_manager_test.c
 
 #PATHS
 
@@ -48,7 +48,7 @@ re: fclean all
 
 test:	$(OBJTEST)
 	$(CC) $(SRC) $(SRCTEST) $(CFLAGS) $(LDFLAGSTEST) -o $(TESTNAME)
-
+	./$(TESTNAME)
 
 
 

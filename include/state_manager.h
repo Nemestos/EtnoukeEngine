@@ -1,6 +1,6 @@
 /*
 ** ETNA PROJECT, 09/05/2022 by turpin_l
-** /home/nemestos/sdl_playground
+** EtnoukeEngine
 ** File description:
 **      header file for state manager
 */
@@ -27,7 +27,7 @@ typedef struct
     float deltatime;
 } StateOptions;
 
-int sm_init(StateManager *stateManager);
+StateManager *sm_init();
 
 int sm_scale(StateManager *stateManager);
 

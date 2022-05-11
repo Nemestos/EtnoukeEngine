@@ -1,8 +1,8 @@
 /*
-** ETNA PROJECT, 09/05/2022 by turpin_l
-** sdl_playground
+** ETNA PROJECT, 12/05/2022 by turpin_l
+** EtnoukeEngine
 ** File description:
-**      Header file for state unit
+**      header file for state atom
 */
 
 #ifndef INCLUDE_STATE

@@ -1,6 +1,6 @@
 /*
 ** ETNA PROJECT, 09/05/2022 by turpin_l
-** sdl_playground
+** EtnoukeEngine
 ** File description:
 **      Utils header for the EtnoukeEngine
 */
@@ -13,9 +13,8 @@ typedef unsigned int (*fn_ptr_float)(float);
 typedef unsigned int (*fn_ptr_int)(int);
 typedef unsigned int (*fn_ptr_char)(char);
 typedef unsigned int (*fn_ptr_str)(char *);
-typedef unsigned int (*fn_ptr_void_ptr)(void*);
+typedef unsigned int (*fn_ptr_void_ptr)(void *);
 #define fn_ptr_custom(_custom) unsigned int (*fn_ptr_void_ptr)(_custom);
-
 
 #define GOOD_RETURN 0
 #define FAILED_RETURN 1
@@ -27,6 +26,12 @@ typedef unsigned int (*fn_ptr_void_ptr)(void*);
         {                  \
             goto _lbl;     \
         }                  \
+    } while (0)
+#define FREEGO(ptr)   \
+    do                \
+    {                 \
+        free((ptr));  \
+        (ptr) = NULL; \
     } while (0)
 
 #endif /* INCLUDE_UTILS */
