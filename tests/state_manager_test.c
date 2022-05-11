@@ -114,10 +114,10 @@ Test(state_manager, check_stdout_init_update_draw_delete, .init = cr_redirect_st
     StateOptions opt = {.deltatime = 60.0f};
     sm_update(stateManager, opt);
     sm_draw(stateManager, opt);
+    sm_free(stateManager);
 
     fflush(stdout);
     char buff[80];
-    sprintf(buff, "init state\nupdate_dt:%.1fabc\ndraw_dt:%.1f0123456789\n", opt.deltatime);
+    sprintf(buff, "init state\nupdate_dt:%.1fabc\ndraw_dt:%.1f0123456789\ndelete state\n", opt.deltatime, opt.deltatime);
     cr_assert_stdout_eq_str(buff);
-    sm_free(stateManager);
 }

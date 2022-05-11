@@ -2,3 +2,8 @@
 .vscode
 objs
 .idea/
+*.gcda
+*.gcno
+out/
+*.gcov
+*.info

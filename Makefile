@@ -6,11 +6,12 @@ OBJ_DIR := ./objs
 TESTS_DIR := ./tests
 
 #FLAGS
-TESTCFLAGS := $(CFLAGS) --coverage
+
 INC := -I/usr/include/SDL2 -I$(INC_DIR)
 LDFLAGS := -lSDL2_image -lSDL2
 LDFLAGSTEST := -lcriterion
 CFLAGS := -Wall -Wextra $(INC)
+TESTCFLAGS := $(CFLAGS) --coverage 
 
 #FILES
 MAIN := $(SRC_DIR)/main.c
@@ -32,10 +33,17 @@ $(NAME): $(OBJ)
 	@echo -ne "[1;36m"
 	$(CC) $^ $(CFLAGS) $(LDFLAGS) -o $@
 	@echo -ne "[0m"
+coverage.info: test
+	lcov --capture --directory . --output-file coverage.info
+
+report: coverage.info ## Generate report
+	genhtml coverage.info --output-directory out
 
 clean:
 	@echo -e "[1;33mCleaning .o :[0m"
 	rm -rf $(OBJ)
+	rm -rf *.gcno
+	rm -rf *.gcda
 	@echo -e "[0m"
 fclean: clean
 	@echo -e "[1;33mCleaning files :[0m"
@@ -47,7 +55,7 @@ fclean: clean
 re: fclean all
 
 test:	$(OBJTEST)
-	$(CC) $(SRC) $(SRCTEST) $(CFLAGS) $(LDFLAGSTEST) -o $(TESTNAME)
+	$(CC) $(SRC) $(SRCTEST) $(TESTCFLAGS) $(LDFLAGSTEST) -o $(TESTNAME)
 	./$(TESTNAME)
 
 
