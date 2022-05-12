@@ -105,6 +105,36 @@ Test(state_manager, pop_one_state)
     sm_free(stateManager);
 }
 
+Test(state_manager, auto_scale_when_needed)
+{
+    StateManager *stateManager = sm_init();
+    int base_capacity = stateManager->capacity;
+    sm_push(stateManager, def_state());
+    sm_push(stateManager, def_state());
+    sm_push(stateManager, def_state());
+    sm_push(stateManager, def_state());
+    cr_assert(eq(stateManager->capacity, base_capacity * STACK_SCALE_FACTOR));
+    int i = 0;
+    for (int i = 0; i < stateManager->front; i++)
+    {
+        State *state = stateManager->stack[i];
+        cr_assert_not_null(state);
+    }
+
+    cr_assert(eq(stateManager->front, 3));
+    sm_free(stateManager);
+}
+
+// Test(state_manager, manual_scale)
+// {
+//     StateManager *stateManager = sm_init();
+//     int base_capacity = stateManager->capacity;
+
+//     cr_assert(eq(stateManager->capacity, base_capacity * STACK_SCALE_FACTOR));
+//     cr_assert(eq(stateManager->front, 3));
+//     sm_free(stateManager);
+// }
+
 Test(state_manager, check_stdout_init_update_draw_delete, .init = cr_redirect_stdout)
 {
     StateManager *stateManager = sm_init();

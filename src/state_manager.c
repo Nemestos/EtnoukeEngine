@@ -23,7 +23,7 @@ StateManager *sm_init()
     MALLER(stateManager->stack, error);
     stateManager->front = STACK_BASE_FRONT;
     return stateManager;
-
+// TODO:mock with fake malloc
 error:
     FREEGO(stateManager->stack);
     return NULL;

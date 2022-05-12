@@ -39,13 +39,22 @@ coverage.info: test
 report: coverage.info ## Generate report
 	genhtml coverage.info --output-directory out
 
-clean:
-	@echo -e "[1;33mCleaning .o :[0m"
-	rm -rf $(OBJ)
+clean-test:
+	@echo -e "[1;33mCleaning tests files :[0m"
+
 	rm -rf *.gcno
 	rm -rf *.gcda
+	rm -rf *.gcov
+	rm -rf *.info
+	rm -rf out/
 	@echo -e "[0m"
-fclean: clean
+
+clean:
+	@echo -e "[1;33mCleaning generated files :[0m"
+	rm -rf $(OBJ)
+	@echo -e "[0m"
+
+fclean: clean clean-test
 	@echo -e "[1;33mCleaning files :[0m"
 
 	rm -rf $(NAME)
@@ -54,7 +63,7 @@ fclean: clean
 
 re: fclean all
 
-test:	$(OBJTEST)
+test:	$(OBJTEST) clean-test
 	$(CC) $(SRC) $(SRCTEST) $(TESTCFLAGS) $(LDFLAGSTEST) -o $(TESTNAME)
 	./$(TESTNAME)
 
