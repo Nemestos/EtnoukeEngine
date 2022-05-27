@@ -10,7 +10,7 @@ TESTS_DIR := ./tests
 INC := -I/usr/include/SDL2 -I$(INC_DIR)
 LDFLAGS := -lSDL2_image -lSDL2
 LDFLAGSTEST := -lcriterion
-CFLAGS := -Wall -Wextra $(INC)
+CFLAGS := -Wall -Wextra $(INC) -std=c17
 TESTCFLAGS := $(CFLAGS) --coverage 
 
 #FILES

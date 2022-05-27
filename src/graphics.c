@@ -1,0 +1,31 @@
+/*
+** ETNA PROJECT, 27/05/2022 by turpin_l
+** EtnoukeEngine
+** File description:
+**      source file for graphics abstraction
+*/
+
+#include "engine/graphics.h"
+#include "engine/errors_handler.h"
+#include "unistd.h"
+#include "consts.h"
+
+int graphics_init()
+{
+    Graphics *graphics = malloc(sizeof(Graphics));
+    graphics->window = SDL_CreateWindow(
+        WINDOW_NAME,
+        SDL_WINDOWPOS_CENTERED,
+        SDL_WINDOWPOS_CENTERED,
+        WINDOW_WIDTH,
+        WINDOW_HEIGHT,
+        SDL_WINDOW_SHOWN
+
+    );
+    return check_return(graphics->window, "Window initialized");
+}
+void graphics_free(Graphics *graphics)
+{
+    SDL_DestroyWindow(graphics->window);
+    free(graphics);
+}

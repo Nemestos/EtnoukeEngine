@@ -5,8 +5,8 @@
 **      header file for state manager
 */
 
-#ifndef INCLUDE_STATEMANAGER
-#define INCLUDE_STATEMANAGER
+#ifndef INCLUDE_ENGINE_STATE_MANAGER
+#define INCLUDE_ENGINE_STATE_MANAGER
 
 #include "state.h"
 
@@ -43,4 +43,4 @@ int sm_update(StateManager *stateManager, StateOptions stateOptions);
 
 int sm_draw(StateManager *stateManager, StateOptions stateOptions);
 
-#endif /* INCLUDE_STATEMANAGER */
+#endif /* INCLUDE_ENGINE_STATE_MANAGER */
