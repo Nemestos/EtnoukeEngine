@@ -10,12 +10,15 @@ TESTS_DIR := ./tests
 INC := -I/usr/include/SDL2 -I$(INC_DIR)
 LDFLAGS := -lSDL2_image -lSDL2
 LDFLAGSTEST := -lcriterion
-CFLAGS := -Wall -Wextra $(INC) -std=c17
+CFLAGS := -Wall -Wextra $(INC) -std=c17 -fsanitize=address
 TESTCFLAGS := $(CFLAGS) --coverage 
 
 #FILES
 MAIN := $(SRC_DIR)/main.c
-SRC :=  $(SRC_DIR)/state_manager.c
+SRC :=  $(SRC_DIR)/state_manager.c\
+		$(SRC_DIR)/errors_handler.c\
+		$(SRC_DIR)/graphics.c
+
 OBJ := $(SRC:.c=.o)\
 		$(MAIN:.c=.o)
 

@@ -9,8 +9,9 @@
 #include "engine/errors_handler.h"
 #include "unistd.h"
 #include "consts.h"
+#include "utils.h"
 
-int graphics_init()
+Graphics *graphics_init()
 {
     Graphics *graphics = malloc(sizeof(Graphics));
     graphics->window = SDL_CreateWindow(
@@ -22,10 +23,17 @@ int graphics_init()
         SDL_WINDOW_SHOWN
 
     );
-    return check_return(graphics->window, "Window initialized");
+    MALLER(graphics, error);
+    MALLER(graphics->window, error);
+    return graphics;
+error:
+    SDL_LogError(SDL_LOG_CATEGORY_ERROR, "%s", SDL_GetError());
+    graphics_free(graphics);
+    return NULL;
 }
 void graphics_free(Graphics *graphics)
 {
     SDL_DestroyWindow(graphics->window);
-    free(graphics);
+    FREEGO(graphics);
+    SDL_Log("Graphics free : success");
 }

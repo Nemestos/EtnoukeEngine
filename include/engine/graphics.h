@@ -17,7 +17,7 @@ typedef struct
     SDL_Window *window;
 } Graphics;
 
-int graphics_init();
+Graphics *graphics_init();
 void graphics_free(Graphics *graphics);
 
 #endif /* INCLUDE_ENGINE_GRAPHICS */

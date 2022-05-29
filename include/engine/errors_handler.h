@@ -11,5 +11,6 @@
 #include "SDL2/SDL_log.h"
 #include "SDL2/SDL_error.h"
 
-int check_return(void *return_value, char *good_message);
+int check_return_ptr(void *ptr, char *good_message);
+int check_return_int(int return_value, char *good_message);
 #endif /* INCLUDE_ENGINE_ERRORS_HANDLER */
