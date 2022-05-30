@@ -9,22 +9,29 @@ TESTS_DIR := ./tests
 
 INC := -I/usr/include/SDL2 -I$(INC_DIR)
 LDFLAGS := -lSDL2_image -lSDL2
-LDFLAGSTEST := -lcriterion
+LDFLAGSTEST := $(LDFLAGS) -lcriterion
 CFLAGS := -Wall -Wextra $(INC) -std=c17
 TESTCFLAGS := $(CFLAGS) --coverage 
 
 #FILES
 MAIN := $(SRC_DIR)/main.c
+
 SRC :=  $(SRC_DIR)/etn_state_manager.c\
 		$(SRC_DIR)/etn_errors.c\
 		$(SRC_DIR)/etn_graphics.c\
 		$(SRC_DIR)/etn_engine.c
 
+SRCTEST := $(TESTS_DIR)/state_manager_test.c
+
+
 OBJ := $(SRC:.c=.o)\
 		$(MAIN:.c=.o)
 
+OBJTEST := $(SRC:.c=.o)\
+		$(SRCTEST:.c=.o)
+
+
 #FILE TESTS
-SRCTEST := $(TESTS_DIR)/state_manager_test.c
 
 #PATHS
 

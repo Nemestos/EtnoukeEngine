@@ -8,7 +8,7 @@
 #include <criterion/criterion.h>
 #include <criterion/new/assert.h>
 #include <criterion/redirect.h>
-#include "state_manager.h"
+#include "etn_engine.h"
 #include "stdlib.h"
 
 unsigned int def_init()
