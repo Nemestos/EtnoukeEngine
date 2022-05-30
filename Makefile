@@ -4,6 +4,7 @@ SRC_DIR := ./src
 INC_DIR := ./include
 OBJ_DIR := ./objs
 TESTS_DIR := ./tests
+LIB_DIR := ./lib
 
 #FLAGS
 
@@ -29,14 +30,17 @@ OBJ := $(SRC:.c=.o)\
 
 OBJTEST := $(SRC:.c=.o)\
 		$(SRCTEST:.c=.o)
+OBJLIB := $(SRC:.c=.o)\
 
 
 #FILE TESTS
 
 #PATHS
 
-NAME := game
-TESTNAME :=game_tests
+NAME := etnouke
+LIB := libetnouke.a
+TESTNAME :=etnouke_tests
+
 
 all: $(NAME)
 
@@ -44,6 +48,13 @@ $(NAME): $(OBJ)
 	@echo -ne "[1;36m"
 	$(CC) $^ $(CFLAGS) $(LDFLAGS) -o $@
 	@echo -ne "[0m"
+
+$(LIB_DIR)/$(LIB): $(OBJLIB)
+	@echo -ne "[1;36m Create library $(LIB)"
+	ar -rcs $(LIB_DIR)/$(LIB) $(OBJLIB)
+	@echo -ne "[0m"
+
+lib :$(LIB_DIR)/$(LIB)
 coverage.info: test
 	lcov --capture --directory . --output-file coverage.info
 
@@ -59,17 +70,24 @@ clean-test:
 	rm -rf *.info
 	rm -rf out/
 	@echo -e "[0m"
+clean-lib:
+	@echo -e "[1;33mCleaning libs files :[0m"
+
+	rm -rf $(OBJLIB)
+	@echo -e "[0m"
+
 
 clean:
 	@echo -e "[1;33mCleaning generated files :[0m"
 	rm -rf $(OBJ)
 	@echo -e "[0m"
 
-fclean: clean clean-test
+fclean: clean clean-test clean-lib
 	@echo -e "[1;33mCleaning files :[0m"
 
 	rm -rf $(NAME)
 	rm -rf $(TESTNAME)
+	rm -rf $(LIB_DIR)/$(LIB)
 	@echo -e "[0m"
 
 re: fclean all
@@ -80,4 +98,4 @@ test:	$(OBJTEST) clean-test
 
 
 
-.PHONY: all clean fclean re test
+.PHONY: all clean clean-lib clean-test report fclean re test lib 
