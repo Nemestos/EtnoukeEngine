@@ -27,11 +27,11 @@ typedef unsigned int (*fn_ptr_void_ptr)(void *);
             goto _lbl;     \
         }                  \
     } while (0)
-#define FREEGO(ptr)   \
-    do                \
-    {                 \
-        free((ptr));  \
-        (ptr) = NULL; \
+#define FREEGO(ptr)    \
+    do                 \
+    {                  \
+        free(*(ptr));  \
+        *(ptr) = NULL; \
     } while (0)
 
 #endif /* INCLUDE_UTILS */

@@ -8,7 +8,7 @@
 #ifndef INCLUDE_STATE_MANAGER
 #define INCLUDE_STATE_MANAGER
 
-#include "state.h"
+#include "etn_state.h"
 
 #define STACK_BASE_CAPACITY 3
 #define STACK_SCALE_FACTOR 2

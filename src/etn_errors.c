@@ -1,4 +1,4 @@
-#include "engine.h"
+#include "etn_engine.h"
 
 int check_return_int(int return_value, char *good_message)
 {

@@ -1,31 +1,22 @@
-#include "engine.h"
+#include "etn_engine.h"
 #include "stdbool.h"
 int main()
 {
-    check_return_int(SDL_Init(SDL_INIT_VIDEO), "Video init : success");
-    StateManager *sm = sm_init();
-    Graphics *graphics = graphics_init();
+    EngineOptions options = {"Fruitz game for charo by charo", 1280, 720};
+    Engine *engine = engine_create(&options, &engine_default_init);
 
-    if (graphics == NULL)
-    {
-        sm_free(sm);
-        SDL_Quit();
-        return 1;
-    }
-
-    bool playing = true;
     SDL_Event e;
 
-    while (playing)
+    while (engine->running)
     {
         while (SDL_PollEvent(&e))
         {
             if (e.type == SDL_QUIT)
-                playing = false;
+                engine->running = false;
         }
     }
-    graphics_free(graphics);
-    sm_free(sm);
+
+    engine_free(engine);
 
     return 0;
 }

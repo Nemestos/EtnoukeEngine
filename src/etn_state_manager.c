@@ -5,8 +5,7 @@
 **      implement the state manager features
 */
 
-#include "engine.h"
-#include "stdlib.h"
+#include "etn_engine.h"
 
 int sm_scale(StateManager *stateManager)
 {
@@ -34,8 +33,9 @@ int sm_free(StateManager *stateManager)
     {
         sm_pop(stateManager);
     } while (stateManager->front > STACK_BASE_FRONT);
-    FREEGO(stateManager->stack);
-    FREEGO(stateManager);
+    FREEGO(&stateManager->stack);
+    FREEGO(&stateManager);
+    SDL_Log("State manager free : success");
     return GOOD_RETURN;
 }
 

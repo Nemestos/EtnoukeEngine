@@ -8,8 +8,8 @@
 #ifndef INCLUDE_STATE
 #define INCLUDE_STATE
 
-#include "utils.h"
-#include "state.h"
+#include "etn_utils.h"
+#include "etn_state.h"
 typedef struct State
 {
     fn_ptr init;

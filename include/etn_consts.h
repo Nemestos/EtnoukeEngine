@@ -1,0 +1,8 @@
+#ifndef INCLUDE_CONSTS
+#define INCLUDE_CONSTS
+
+#define ETN_WINDOW_NAME "Game Engine Test"
+#define ETN_WINDOW_WIDTH 800
+#define ETN_WINDOW_HEIGHT 600
+
+#endif /* INCLUDE_CONSTS */
