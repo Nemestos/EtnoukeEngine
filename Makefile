@@ -69,6 +69,7 @@ clean-test:
 	rm -rf *.gcov
 	rm -rf *.info
 	rm -rf out/
+	rm -rf $(OBJTEST)
 	@echo -e "[0m"
 clean-lib:
 	@echo -e "[1;33mCleaning libs files :[0m"

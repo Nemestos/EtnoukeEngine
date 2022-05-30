@@ -50,6 +50,6 @@ error:
 void graphics_free(Graphics *graphics)
 {
     SDL_DestroyWindow(graphics->window);
-    // FREEGO(&graphics);
+    FREEGO(&graphics);
     SDL_Log("Graphics free : success");
 }
