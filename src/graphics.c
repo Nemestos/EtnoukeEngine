@@ -5,13 +5,12 @@
 **      source file for graphics abstraction
 */
 
-#include "engine/graphics.h"
-#include "engine/errors_handler.h"
+#include "engine.h"
 #include "unistd.h"
 #include "consts.h"
 #include "utils.h"
-
-Graphics *graphics_init()
+#include "SDL2/SDL.h"
+Graphics *graphics_alloc()
 {
     Graphics *graphics = malloc(sizeof(Graphics));
     graphics->window = SDL_CreateWindow(

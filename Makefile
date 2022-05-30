@@ -17,7 +17,8 @@ TESTCFLAGS := $(CFLAGS) --coverage
 MAIN := $(SRC_DIR)/main.c
 SRC :=  $(SRC_DIR)/state_manager.c\
 		$(SRC_DIR)/errors_handler.c\
-		$(SRC_DIR)/graphics.c
+		$(SRC_DIR)/graphics.c\
+		$(SRC_DIR)/engine.c
 
 OBJ := $(SRC:.c=.o)\
 		$(MAIN:.c=.o)

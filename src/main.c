@@ -5,6 +5,7 @@ int main()
     check_return_int(SDL_Init(SDL_INIT_VIDEO), "Video init : success");
     StateManager *sm = sm_init();
     Graphics *graphics = graphics_init();
+
     if (graphics == NULL)
     {
         sm_free(sm);

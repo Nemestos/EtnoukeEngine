@@ -5,7 +5,7 @@
 **      implement the state manager features
 */
 
-#include "engine/state_manager.h"
+#include "engine.h"
 #include "stdlib.h"
 
 int sm_scale(StateManager *stateManager)

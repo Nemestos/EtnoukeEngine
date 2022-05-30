@@ -12,6 +12,7 @@
 
 typedef struct
 {
+    char *title;
     int width;
     int height;
     SDL_Window *window;
