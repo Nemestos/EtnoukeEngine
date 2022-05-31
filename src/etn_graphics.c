@@ -24,6 +24,8 @@ Graphics *graphics_default_init(Graphics *graphics)
         graphics->height,
         SDL_WINDOW_SHOWN);
     MALLER(graphics->window, error);
+    graphics->renderer = SDL_CreateRenderer(graphics->window, -1, SDL_RENDERER_ACCELERATED);
+    MALLER(graphics->renderer, error);
     return graphics;
 
 error:
@@ -50,6 +52,7 @@ error:
 void graphics_free(Graphics *graphics)
 {
     SDL_DestroyWindow(graphics->window);
+    SDL_DestroyRenderer(graphics->renderer);
     FREEGO(&graphics);
     SDL_Log("Graphics free : success");
 }

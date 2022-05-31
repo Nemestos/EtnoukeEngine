@@ -19,6 +19,7 @@ typedef struct
     int width;
     int height;
     SDL_Window *window;
+    SDL_Renderer *renderer;
 } Graphics;
 
 typedef Graphics *(*GraphicsInit)(Graphics *);
