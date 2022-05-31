@@ -5,7 +5,7 @@
 **      source file for graphics abstraction
 */
 
-#include "etn_engine.h"
+#include "etn.h"
 
 Graphics *graphics_default_init(Graphics *graphics)
 {

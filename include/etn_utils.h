@@ -5,8 +5,8 @@
 **      Utils header for the EtnoukeEngine
 */
 
-#ifndef INCLUDE_UTILS
-#define INCLUDE_UTILS
+#ifndef INCLUDE_ETN_UTILS
+#define INCLUDE_ETN_UTILS
 
 typedef unsigned int (*fn_ptr)();
 typedef unsigned int (*fn_ptr_float)(float);
@@ -34,4 +34,4 @@ typedef unsigned int (*fn_ptr_void_ptr)(void *);
         *(ptr) = NULL; \
     } while (0)
 
-#endif /* INCLUDE_UTILS */
+#endif /* INCLUDE_ETN_UTILS */

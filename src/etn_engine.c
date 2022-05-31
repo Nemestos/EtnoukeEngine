@@ -5,7 +5,7 @@
 **      implement engine
 */
 
-#include "etn_engine.h"
+#include "etn.h"
 
 Engine *engine_default_init(Engine *engine, EngineOptions *engineOptions)
 {

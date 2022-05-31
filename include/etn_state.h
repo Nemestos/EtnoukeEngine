@@ -5,8 +5,8 @@
 **      header file for state atom
 */
 
-#ifndef INCLUDE_STATE
-#define INCLUDE_STATE
+#ifndef INCLUDE_ETN_STATE
+#define INCLUDE_ETN_STATE
 
 #include "etn_utils.h"
 #include "etn_state.h"
@@ -19,4 +19,4 @@ typedef struct State
     fn_ptr destroy;
 } State;
 
-#endif /* INCLUDE_STATE */
+#endif /* INCLUDE_ETN_STATE */

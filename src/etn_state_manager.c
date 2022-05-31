@@ -5,7 +5,7 @@
 **      implement the state manager features
 */
 
-#include "etn_engine.h"
+#include "etn.h"
 
 int sm_scale(StateManager *stateManager)
 {

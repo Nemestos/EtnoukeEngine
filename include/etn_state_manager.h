@@ -5,8 +5,8 @@
 **      header file for state manager
 */
 
-#ifndef INCLUDE_STATE_MANAGER
-#define INCLUDE_STATE_MANAGER
+#ifndef INCLUDE_ETN_STATE_MANAGER
+#define INCLUDE_ETN_STATE_MANAGER
 
 #include "etn_state.h"
 
@@ -43,4 +43,4 @@ int sm_update(StateManager *stateManager, StateOptions stateOptions);
 
 int sm_draw(StateManager *stateManager, StateOptions stateOptions);
 
-#endif /* INCLUDE_STATE_MANAGER */
+#endif /* INCLUDE_ETN_STATE_MANAGER */

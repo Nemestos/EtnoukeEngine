@@ -5,8 +5,8 @@
 **      include file for graphic abstraction
 */
 
-#ifndef INCLUDE_ENGINE_GRAPHICS
-#define INCLUDE_ENGINE_GRAPHICS
+#ifndef INCLUDE_ETN_GRAPHICS
+#define INCLUDE_ETN_GRAPHICS
 
 #include "unistd.h"
 #include "etn_consts.h"
@@ -28,4 +28,4 @@ Graphics *graphics_default_init(Graphics *graphics);
 Graphics *graphics_create(GraphicsInit graphicsInit);
 void graphics_free(Graphics *graphics);
 
-#endif /* INCLUDE_ENGINE_GRAPHICS */
+#endif /* INCLUDE_ETN_GRAPHICS */

@@ -1,9 +1,8 @@
 #ifndef INCLUDE_ENGINE
 #define INCLUDE_ENGINE
-#include "etn_errors.h"
+
 #include "etn_graphics.h"
 #include "etn_state_manager.h"
-#include "etn_state.h"
 #include "stdbool.h"
 #include "stdlib.h"
 
