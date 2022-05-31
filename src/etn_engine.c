@@ -5,7 +5,7 @@
 **      implement engine
 */
 
-#include "etn.h"
+#include "etn_engine.h"
 
 Engine *engine_default_init(Engine *engine, EngineOptions *engineOptions)
 {
@@ -16,11 +16,18 @@ Engine *engine_default_init(Engine *engine, EngineOptions *engineOptions)
         engine->graphics->width = engineOptions->width;
         engine->graphics->height = engineOptions->height;
     }
-    graphics_default_init(engine->graphics);
+    if (engineOptions->customGraphicsInit != NULL)
+    {
+        engine->graphics = engineOptions->customGraphicsInit(engine->graphics);
+    }
+    else
+    {
+        engine->graphics = graphics_default_init(engine->graphics);
+    }
     engine->stateManager = sm_init();
     engine->running = true;
-    MALLER(engine->graphics, error);
-    MALLER(engine->stateManager, error);
+    MALLER(engine->graphics, error, "Cant get graphics module");
+    MALLER(engine->stateManager, error, "Can't get state manager module");
     return engine;
 
 error:
@@ -37,7 +44,7 @@ Engine *engine_create(EngineOptions *engineOptions, EngineInit engineInit)
     }
 
     Engine *engine = malloc(sizeof(Engine));
-    MALLER(engine, error);
+    MALLER(engine, error, "Cant alloc engine");
 
     if (engineInit)
     {

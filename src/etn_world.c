@@ -4,4 +4,4 @@
 ** File description:
 **      source code for world ecs implementation
 */
-#include "etn.h"
+#include "etn_world.h"

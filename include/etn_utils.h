@@ -19,13 +19,18 @@ typedef unsigned int (*fn_ptr_void_ptr)(void *);
 #define GOOD_RETURN 0
 #define FAILED_RETURN 1
 
-#define MALLER(_ptr, _lbl) \
-    do                     \
-    {                      \
-        if (_ptr == NULL)  \
-        {                  \
-            goto _lbl;     \
-        }                  \
+#define MALLER(_ptr, _lbl, _msg, ...)                                  \
+    do                                                                 \
+    {                                                                  \
+        if (_msg != NULL)                                              \
+        {                                                              \
+            SDL_LogError(SDL_LOG_CATEGORY_ERROR, _msg, ##__VA_ARGS__); \
+        }                                                              \
+                                                                       \
+        if (_ptr == NULL)                                              \
+        {                                                              \
+            goto _lbl;                                                 \
+        }                                                              \
     } while (0)
 #define FREEGO(ptr)    \
     do                 \

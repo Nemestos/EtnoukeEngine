@@ -5,7 +5,7 @@
 **      implement the state manager features
 */
 
-#include "etn.h"
+#include "etn_state_manager.h"
 
 int sm_scale(StateManager *stateManager)
 {
@@ -19,7 +19,7 @@ StateManager *sm_init()
     StateManager *stateManager = malloc(sizeof(StateManager));
     stateManager->capacity = STACK_BASE_CAPACITY;
     stateManager->stack = malloc(stateManager->capacity * sizeof(State *));
-    MALLER(stateManager->stack, error);
+    MALLER(stateManager->stack, error, "Can't create stack of state manager");
     stateManager->front = STACK_BASE_FRONT;
     return stateManager;
 error:

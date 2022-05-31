@@ -9,6 +9,9 @@
 #define INCLUDE_ETN_STATE_MANAGER
 
 #include "etn_state.h"
+#include "etn_utils.h"
+#include "stddef.h"
+#include "SDL2/SDL.h"
 
 #define STACK_BASE_CAPACITY 3
 #define STACK_SCALE_FACTOR 2

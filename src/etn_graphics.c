@@ -5,7 +5,7 @@
 **      source file for graphics abstraction
 */
 
-#include "etn.h"
+#include "etn_graphics.h"
 
 Graphics *graphics_default_init(Graphics *graphics)
 {
@@ -23,9 +23,9 @@ Graphics *graphics_default_init(Graphics *graphics)
         graphics->width,
         graphics->height,
         SDL_WINDOW_SHOWN);
-    MALLER(graphics->window, error);
+    MALLER(graphics->window, error, "Can't init window: %s", graphics->title);
     graphics->renderer = SDL_CreateRenderer(graphics->window, -1, SDL_RENDERER_ACCELERATED);
-    MALLER(graphics->renderer, error);
+    MALLER(graphics->renderer, error, "Can't create renderer");
     return graphics;
 
 error:
@@ -36,7 +36,7 @@ error:
 Graphics *graphics_create(GraphicsInit graphicsInit)
 {
     Graphics *graphics = malloc(sizeof(Graphics));
-    MALLER(graphics, error);
+    MALLER(graphics, error, "Can't create graphics module");
 
     if (graphicsInit)
     {
