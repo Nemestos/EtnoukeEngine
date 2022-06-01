@@ -6,6 +6,6 @@
 #include "etn_state_manager.h"
 #include "etn_state.h"
 #include "etn_engine.h"
-#include "etn_entity.h"
-#include "etn_world.h"
+#include "ecs/etn_ecs_entity.h"
+#include "ecs/etn_ecs_world.h"
 #endif /* INCLUDE_ETN */

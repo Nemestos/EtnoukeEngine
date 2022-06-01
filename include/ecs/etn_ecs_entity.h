@@ -1,8 +1,8 @@
-#ifndef INCLUDE_ETN_ENTITY
-#define INCLUDE_ETN_ENTITY
+#ifndef INCLUDE_ECS_ETN_ECS_ENTITY
+#define INCLUDE_ECS_ETN_ECS_ENTITY
 
 #include "string.h"
-#include "etn_world.h"
+#include "ecs/etn_ecs_world.h"
 #include "etn_utils.h"
 #include "etn_consts.h"
 #include "SDL2/SDL.h"
@@ -22,4 +22,4 @@ Entity *entity_create(char *name, World *world, EntityInit entityInit);
 void entity_free(Entity *entity, World *world);
 void entity_set_name(Entity *entity, char *name);
 
-#endif /* INCLUDE_ETN_ENTITY */
+#endif /* INCLUDE_ECS_ETN_ECS_ENTITY */

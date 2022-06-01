@@ -1,10 +1,19 @@
-#ifndef INCLUDE_ETN_WORLD
-#define INCLUDE_ETN_WORLD
+#ifndef INCLUDE_ECS_ETN_ECS_WORLD
+#define INCLUDE_ECS_ETN_ECS_WORLD
 
-#include "etn_entity.h"
+#include "ecs/etn_ecs_entity.h"
 
 // forward declaration due to circular dependency;
 struct Entity;
+
+typedef struct
+{
+
+    Uint32 count;
+    Uint32 cap;
+    Entity *matched_entities;
+} QueryResult;
+
 typedef struct
 {
     struct Entity **entities;
@@ -18,4 +27,4 @@ World *world_default_init(World *world);
 World *world_create(WorldInit worldInit, World *world);
 int world_realloc_entities(World *world, int newSize);
 
-#endif /* INCLUDE_ETN_WORLD */
+#endif /* INCLUDE_ECS_ETN_ECS_WORLD */
