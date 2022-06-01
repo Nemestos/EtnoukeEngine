@@ -48,6 +48,37 @@ typedef struct
      *
      */
     void *data;
-} ComponentStore
+} ComponentStore;
+
+typedef struct
+{
+    /**
+     * @brief an array with the component mask(which components each entity has)
+     *  |entity_1||entity_2||entity_3||entity_4|
+     * ----------------------------------------
+     * |ok|no|ok||ok|ok|ok||no|no|ok||ok|no|no|
+     * ----------------------------------------
+     * where ok=1 and no=0
+     */
+    Uint32 *mask_array;
+
+    /**
+     * @brief an array with the flag mask(which flags each entity has)
+     * example:an entity could have the alive flag
+     * additional infos for each entities
+     */
+    Uint32 *flag_array;
+
+    /**
+     * @brief the current count of created entities
+     *
+     */
+    Uint32 entities_count;
+    /**
+     * @brief how many entities we can store
+     *
+     */
+    Uint32 capacity;
+} EntityStore;
 
 #endif /* INCLUDE_ECS_ETN_ECS_STORES */
